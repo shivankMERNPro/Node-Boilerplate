@@ -20,12 +20,12 @@ export const sendResponse = <T>(
       (success ? "Success" : "Error");
 
     const response: ApiResponse<T> = {
-      success,                  // 1️⃣ success first
-      code: statusCode,         // 2️⃣ code
-      message,                  // 3️⃣ message
-      error: payload.error,     // 4️⃣ error
-      data: payload.data,       // 5️⃣ data
-      errors: payload.errors,   // 6️⃣ validation errors
+      success,
+      code: statusCode,
+      message,
+      error: payload.error,
+      data: payload.data,
+      errors: payload.errors,
     };
 
     return res.status(statusCode).json(response);
@@ -38,12 +38,12 @@ export const sendResponse = <T>(
     (isSuccess ? "Success" : "Error");
 
   const response: ApiResponse<T> = {
-    success: isSuccess,                             // 1️⃣ success first
-    code: statusCode,                               // 2️⃣ code
+    success: isSuccess,
+    code: statusCode,
     message:
-      typeof payload === "string" ? payload : statusMessage, // 3️⃣ message
-    error: !isSuccess && typeof payload === "string" ? payload : undefined, // 4️⃣ error
-    data: isSuccess && typeof payload !== "string" ? (payload as T) : undefined, // 5️⃣ data
+      typeof payload === "string" ? payload : statusMessage,
+    error: !isSuccess && typeof payload === "string" ? payload : undefined,
+    data: isSuccess && typeof payload !== "string" ? (payload as T) : undefined,
   };
 
   return res.status(statusCode).json(response);

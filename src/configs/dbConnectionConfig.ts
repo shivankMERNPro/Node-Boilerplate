@@ -8,7 +8,7 @@ const MAX_RETRIES = 5;
 
 const connectDB = async (): Promise<void> => {
   if (isConnected) {
-    logger.info('👍 MongoDB is already connected.');
+    logger.info('MongoDB is already connected.');
     return;
   }
 
@@ -27,7 +27,7 @@ const connectDB = async (): Promise<void> => {
     isConnected = true;
     reconnectAttempts = 0;
     logger.success(
-      `👍 MongoDB connected successfully to database: ${env.mongoDbName}`,
+      `MongoDB connected successfully to database: ${env.mongoDbName}`,
     );
   } catch (error) {
     reconnectAttempts++;

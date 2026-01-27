@@ -5,10 +5,10 @@ import express from 'express';
 // ----------------------------------------------------------------------
 // Import Child Routes
 // ----------------------------------------------------------------------
-import authRoutes from './routes/auth.routes';
+import studentRoutes from './routes/student.routes';
 
 const parentRoutes = express.Router();
 
-parentRoutes.use('/api/v1', authRoutes);
+parentRoutes.use('/api/v1', studentRoutes);
 
 export default parentRoutes;

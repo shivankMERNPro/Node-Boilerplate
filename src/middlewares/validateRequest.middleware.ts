@@ -73,7 +73,7 @@ export const validateRequest = (schema: ZodSchema) => {
       const validatedData = await schema.parseAsync(dataToValidate);
       req.validatedData = validatedData;
 
-      
+
       next();
     } catch (error: unknown) {
       // -------------------------------

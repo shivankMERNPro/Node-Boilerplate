@@ -81,7 +81,7 @@ app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
 const server = app.listen(env.port, async () => {
   await connectDB();
   logger.success(
-    `⚡️ Server is running at http://localhost:${env.port} [${env.nodeEnv}]`,
+    `Server is running at http://localhost:${env.port} [${env.nodeEnv}]`,
   );
 });
 

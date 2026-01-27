@@ -6,7 +6,7 @@ const allowedOrigins = env.corsOrigin ? env.corsOrigin.split(',') : [];
 
 const corsOptions: CorsOptions = {
   origin: (origin, callback) => {
-    if ( env.nodeEnv !== 'production' || !origin || allowedOrigins.includes(origin)) {
+    if (env.nodeEnv !== 'production' || !origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       logger.warn(`Blocked by CORS: ${origin}`);
