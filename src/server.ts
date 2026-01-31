@@ -1,5 +1,4 @@
 import express, { Request, Response, NextFunction } from 'express';
-import helmet from 'helmet';
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 
@@ -13,6 +12,7 @@ import { rateLimiter } from './middlewares/rateLimit.middleware';
 
 import parentRoutes from './app';
 import connectDB from './configs/dbConnectionConfig';
+import helmet from 'helmet';
 
 // ----------------------------------------------------------------------
 // 1. Initialize Express

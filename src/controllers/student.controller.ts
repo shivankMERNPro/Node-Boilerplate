@@ -6,6 +6,7 @@ import {
     updateStudentService,
     deleteStudentService,
 } from "../services/student.service";
+
 import { sendResponse } from "../utils/sendResponse";
 
 export const createStudentController = async (req: Request, res: Response) => {

@@ -1,6 +1,6 @@
 import { Student, IStudentDocument } from "../models/student.model";
 import { IStudent } from "../types/student.types";
-import { HTTP_STATUS } from "../constants/httpStatus";
+import { HTTP_STATUS, STATUS_MESSAGE } from "../constants/httpStatus";
 import { ApiResponse } from "../types/apiResponse.type";
 
 /**
@@ -17,7 +17,7 @@ export const createStudentService = async (data: IStudent): Promise<ApiResponse<
     const student = await Student.create(data);
     return {
         code: HTTP_STATUS.CREATED,
-        message: "Student created successfully",
+        message: STATUS_MESSAGE[HTTP_STATUS.CREATED],
         data: student,
     };
 };
@@ -28,12 +28,14 @@ export const createStudentService = async (data: IStudent): Promise<ApiResponse<
 export const getAllStudentsService = async (page: number = 1, limit: number = 10): Promise<ApiResponse<{ students: IStudentDocument[]; pagination: any }>> => {
     const skip = (page - 1) * limit;
     const total = await Student.countDocuments();
-    const students = await Student.find().skip(skip).limit(limit);
+    const students = await Student.find()
+        .sort({ createdAt: -1 })
+        .skip(skip)
+        .limit(limit);
     const totalPages = Math.ceil(total / limit);
-
     return {
         code: HTTP_STATUS.OK,
-        message: "Students retrieved successfully",
+        message: STATUS_MESSAGE[HTTP_STATUS.OK],
         data: {
             students,
             pagination: {
@@ -54,12 +56,12 @@ export const getStudentByIdService = async (id: string): Promise<ApiResponse<ISt
     if (!student) {
         return {
             code: HTTP_STATUS.NOT_FOUND,
-            message: "Student not found",
+            message: STATUS_MESSAGE[HTTP_STATUS.NOT_FOUND],
         };
     }
     return {
         code: HTTP_STATUS.OK,
-        message: "Student retrieved successfully",
+        message: STATUS_MESSAGE[HTTP_STATUS.OK],
         data: student,
     };
 };
@@ -72,12 +74,12 @@ export const updateStudentService = async (id: string, data: Partial<IStudent>):
     if (!student) {
         return {
             code: HTTP_STATUS.NOT_FOUND,
-            message: "Student not found",
+            message: STATUS_MESSAGE[HTTP_STATUS.NOT_FOUND],
         };
     }
     return {
         code: HTTP_STATUS.OK,
-        message: "Student updated successfully",
+        message: STATUS_MESSAGE[HTTP_STATUS.OK],
         data: student,
     };
 };
@@ -90,11 +92,11 @@ export const deleteStudentService = async (id: string): Promise<ApiResponse<null
     if (!student) {
         return {
             code: HTTP_STATUS.NOT_FOUND,
-            message: "Student not found",
+            message: STATUS_MESSAGE[HTTP_STATUS.NOT_FOUND],
         };
     }
     return {
         code: HTTP_STATUS.OK,
-        message: "Student deleted successfully",
+        message: STATUS_MESSAGE[HTTP_STATUS.OK],
     };
 };
