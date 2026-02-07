@@ -1,7 +1,6 @@
 # Idolize Business Solutions Assessment
 
-This project is a **Student Management System** that provides RESTful APIs for performing CRUD operations on student data and supports pagination.  
-The backend is built using **Node.js, TypeScript, Express**, and **MongoDB**, with a **React.js** frontend consuming these APIs.
+Node Boilerplate is a production-ready backend starter built with Node.js, Express, and TypeScript, designed to follow real-world engineering practices rather than demo-level setups.
 
 ---
 
