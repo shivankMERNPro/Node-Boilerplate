@@ -1,4 +1,4 @@
-# Idolize Business Solutions Assessment
+# Node Boilerplate 🚀
 
 Node Boilerplate is a production-ready backend starter built with Node.js, Express, and TypeScript, designed to follow real-world engineering practices rather than demo-level setups.
 
@@ -6,15 +6,16 @@ Node Boilerplate is a production-ready backend starter built with Node.js, Expre
 
 ## Table of Contents
 
-- [Project Overview](#project-overview)  
+- [Project Overview](#project-overview)
+- [Project Features](#project-features)
 - [Tech Stack](#tech-stack)  
 - [Installation](#installation)  
 - [Scripts](#scripts)  
 - [Development Guidelines](#development-guidelines)  
-- [Linting & Formatting](#linting--formatting)  
+- [Linting & Formatting](#linting--formatting)
 
 ---
-
+  
 ## Project Overview
 
 This project is designed to manage **user profiles** efficiently with:
@@ -26,6 +27,19 @@ This project is designed to manage **user profiles** efficiently with:
 
 ---
 
+## ✨ Features
+
+- ⚡ Express + TypeScript setup
+- 🔐 Security headers with Helmet
+- 🚦 Rate limiting to prevent abuse
+- 🌐 Custom CORS middleware
+- 🧾 Request logging
+- 🧩 Modular folder structure
+- ❤️ Health check APIs (Service + MongoDB)
+- ❗ Centralized & global error handling
+- 🔄 Graceful shutdown & process-level safety
+
+---
 
 ## Tech Stack
 - Node.js
